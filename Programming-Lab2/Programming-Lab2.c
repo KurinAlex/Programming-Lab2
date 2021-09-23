@@ -1,31 +1,32 @@
 ﻿#include <stdio.h>
+
+#define _USE_MATH_DEFINES
 #include <math.h>
 
-#define A 4
-#define LOG_A log(A)
+#define a 4
 #define LEFT_RANGE_BOUND -2
 #define RIGHT_RANGE_BOUND 2
 #define STEP 0.4
-#define PI 3.14159265358979323846
-
-double y(double x)
-{
-	if (x < 1.2)
-	{
-		return exp(x * x / 2) + LOG_A;
-	}
-	else if (x == 1.2)
-	{
-		return A * pow(cos(PI * x / 2.7), 3);
-	}
-	return x * x + A * x + 5;
-}
+#define SWITCH_NUMBER 1.2
 
 int main()
 {
+	double y;
 	for (double x = LEFT_RANGE_BOUND; x <= RIGHT_RANGE_BOUND; x += STEP)
 	{
-		printf("y(%.1f)=%f\n", x, y(x));
+		if (x < SWITCH_NUMBER)
+		{
+			y = exp(x * x / 2) + log(a);
+		}
+		else if (x == SWITCH_NUMBER)
+		{
+			y = a * pow(cos(M_PI * x / 2.7), 3);
+		}
+		else
+		{
+			y = x * x + a * x + 5;
+		}
+		printf("y(%.1f)=%f\n", x, y);
 	}
 
 	getchar();
