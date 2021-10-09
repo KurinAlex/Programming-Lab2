@@ -19,7 +19,6 @@ int main()
 	{
 		EnterDouble(&a, "a");
 	} while (a <= 0.0);
-	double log_a = log(a);
 
 	double left_range_bound;
 	EnterDouble(&left_range_bound, "left bound of range");
@@ -39,6 +38,7 @@ int main()
 	} while (step <= 0.0);
 
 	double y;
+	const double log_a = log(a);
 	for (double x = left_range_bound; x <= right_range_bound; x += step)
 	{
 		if (x < SWITCH_NUMBER)
